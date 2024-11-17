@@ -25,3 +25,25 @@ menuIcon.classList.toggle('bx-x');
 navbar.classList.toggle('active');
 };
 
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get form data
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Save data in localStorage (or simulate saving it)
+    localStorage.setItem('contactFormData', JSON.stringify({
+        fullName, email, phone, subject, message
+    }));
+
+    // Show an alert when the form is successfully "saved"
+    alert("Your message has been successfully sent! We'll get back to you soon.");
+
+    // Optionally, reset the form
+    document.getElementById('contactForm').reset();
+});
